@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Privates</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Event date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @privates.each do |private| %>
+      <tr>
+        <td><%= private.event_date %></td>
+        <td><%= link_to 'Show', private %></td>
+        <td><%= link_to 'Edit', edit_private_path(private) %></td>
+        <td><%= link_to 'Destroy', private, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Private', new_private_path %>
