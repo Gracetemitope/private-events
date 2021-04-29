@@ -1,7 +1,7 @@
 <%= form_with(model: private) do |form| %>
   <% if private.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(private.errors.count, "error") %> prohibited this private from being saved:</h2>
+      <h2><%= pluralize(private.errors.count, "error") %> prohibited this event from being saved:</h2>
 
       <ul>
         <% private.errors.each do |error| %>
@@ -11,11 +11,22 @@
     </div>
   <% end %>
 
+ <div class="field">
+    <%= form.label :title_of_event %>
+    <%= form.text_field :title_of_event %>
+  </div>
   <div class="field">
     <%= form.label :event_date %>
     <%= form.number_field :event_date %>
   </div>
-
+   <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+  </div>
+   <div class="field">
+    <%= form.label :location %>
+    <%= form.text_field :location %>
+  </div>
   <div class="actions">
     <%= form.submit %>
   </div>
