@@ -3,6 +3,7 @@ class PrivatesController < ApplicationController
 
   # GET /privates or /privates.json
   def index
+    
     @privates = Private.all
   end
 
