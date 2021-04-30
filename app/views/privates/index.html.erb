@@ -13,7 +13,10 @@
   <tbody>
     <% @privates.each do |private| %>
       <tr>
+        <td><%= private.title_of_event %></td>
         <td><%= private.event_date %></td>
+        <td><%= private.description %></td>
+        <td><%= private.location %></td>
         <td><%= link_to 'Show', private %></td>
         <td><%= link_to 'Edit', edit_private_path(private) %></td>
         <td><%= link_to 'Destroy', private, method: :delete, data: { confirm: 'Are you sure?' } %></td>

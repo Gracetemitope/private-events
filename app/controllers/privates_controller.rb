@@ -12,6 +12,7 @@ class PrivatesController < ApplicationController
 
   # GET /privates/new
   def new
+    
     @private = Private.new
   end
 
@@ -21,7 +22,7 @@ class PrivatesController < ApplicationController
 
   # POST /privates or /privates.json
   def create
-    @private = Private.new(private_params)
+    @private = current_user.privates.build(private_params)
 
     respond_to do |format|
       if @private.save
@@ -64,6 +65,6 @@ class PrivatesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def private_params
-      params.require(:private).permit(:event_date)
+      params.require(:private).permit(:event_date, :location, :description, :title_of_event)
     end
 end
