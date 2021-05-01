@@ -1,1 +1,1 @@
-json.array! @privates, partial: "privates/private", as: :private
+json.array! @privates, partial: 'privates/private', as: :private

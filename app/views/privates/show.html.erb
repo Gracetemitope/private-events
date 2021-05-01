@@ -1,6 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Event Creator:</strong>
+  <%=  %>
+</p>
+<p>
   <strong>Event date:</strong>
   <%= @private.event_date %>
 </p>
@@ -18,6 +22,14 @@
   <strong>Event Location:</strong>
   <%= @private.location %>
 </p>
+<div class="border-bottom"></div>
+<div>
+<p>
+<strong>Attendess:
+</strong>
+</p>
+<%= %>
+</div>
 
 <%= link_to 'Edit', edit_private_path(@private) %> |
 <%= link_to 'Back', privates_path %>

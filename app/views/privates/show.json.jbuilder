@@ -1,1 +1,1 @@
-json.partial! "privates/private", private: @private
+json.partial! 'privates/private', private: @private

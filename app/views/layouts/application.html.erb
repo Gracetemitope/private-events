@@ -12,8 +12,63 @@
 
   <body>
   
-       <p class="notice"><%= notice %></p>
+        <% if flash[:notice] %>
+  <div class="notification is-primary">
+   <p class="notice"><%= notice %></p>
+</div>
+<% end %>
+ <% if flash[:alert] %>
+  <div class="notification is-danger">
        <p class="alert"><%= alert %></p>
+  </div>
+<% end %>
+       <div>
+       <nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <%= link_to root_path, class: "navbar-item" do %>
+      <img src="https://iconape.com/wp-content/png_logo_vector/clubhouse-logo.png" width="112" height="100">
+    <%end%>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item">
+        Home
+      </a>
+
+      <a class="navbar-item">
+      Join a Conversation
+      </a>
+        <a class="navbar-item">
+          Trending
+        </a>
+
+       
+      </div>
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+            <% if user_signed_in? %>
+                        <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "button is_danger" %>
+                        <% else %>
+                                    <%= link_to "Sign Up", new_user_registration_path, class: "button is_primary" %>
+                                                <%= link_to "Log In", user_session_path, class: "button is_primary" %>
+
+            <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+       </div>
     <%= yield %>
   </body>
 </html>
