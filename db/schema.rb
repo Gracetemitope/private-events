@@ -10,13 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_30_195806) do
+ActiveRecord::Schema.define(version: 2021_05_06_134319) do
 
   create_table "EventAttendees", force: :cascade do |t|
     t.integer "attendees_id"
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "event_attendees", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "private_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["private_id"], name: "index_event_attendees_on_private_id"
+    t.index ["user_id"], name: "index_event_attendees_on_user_id"
   end
 
   create_table "privates", force: :cascade do |t|
@@ -38,8 +47,9 @@ ActiveRecord::Schema.define(version: 2021_04_30_195806) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "username"
-    t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "event_attendees", "privates"
+  add_foreign_key "event_attendees", "users"
 end

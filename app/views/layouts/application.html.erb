@@ -57,9 +57,11 @@
       <div class="navbar-item">
         <div class="buttons">
             <% if user_signed_in? %>
+                                <strong class="button">    <%= current_user.username%></strong>
+
                         <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "button is_danger" %>
                         <% else %>
-                                    <%= link_to "Sign Up", new_user_registration_path, class: "button is_primary" %>
+            <%= link_to "Sign Up", new_user_registration_path, class: "button is_primary" %>
                                                 <%= link_to "Log In", user_session_path, class: "button is_primary" %>
 
             <% end %>

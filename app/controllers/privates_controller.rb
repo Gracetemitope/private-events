@@ -8,8 +8,9 @@ class PrivatesController < ApplicationController
 
   # GET /privates/1 or /privates/1.json
   def show
-  # @attendee = Attendee.all
+    # @attendee = Attendee.all
   end
+
   # GET /privates/new
   def new
     @private = Private.new
