@@ -5,8 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :privates, foreign_key: "creator_id"
-  has_many :EventAttendees
-  has_many :attending_events, foreign_key: "event_id", class_name: 'Private', through: :EventAttendees, source: :private
+  has_many :event_attendees
+  has_many :attending_events, foreign_key: "private_id", class_name: 'Private', through: :event_attendee, source: :private
 
   #  belongs_to :creator class_name: "User", foreign_key: "creator"
   # validates :email, presence: true, uniqueness: true
