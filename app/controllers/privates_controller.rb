@@ -3,9 +3,8 @@ class PrivatesController < ApplicationController
 
   # GET /privates or /privates.json
     def index
-      @prev_events = Private.prev_events
-      @upcoming_events = Private.upcoming_events
-    # @privates = Private.all
+      @past_events = Private.where('event_date < ?', Date.current)
+      @future_events = Private.where('event_date > ?', Date.current)
   end
 
   # GET /privates/1 or /privates/1.json

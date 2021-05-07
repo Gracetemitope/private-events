@@ -3,10 +3,23 @@
 <h1>All Event</h1>
 
 <h2>Upcoming Event</h2>
-<%= render 'event.html.erb', private: @upcoming_events%>
+<%= @future_events.each do |private|%>
+<p>
+  <strong>Event Title:</strong>
+  <%= private.title_of_event %>
+</p>
+<% end %>
 
 <h2>Past Event</h2>
-<%= render 'event.html.erb', private: @prev_events%>
+<%= @past_events.each do |private|%>
+<p>
+  <strong>Event Title:</strong>
+  <%= private.title_of_event %>
+</p>
+<% end %>
+<%# 
+<h2>Past Event</h2>
+<%= render 'event.html.erb', privates:  Private.past_events%>
 
  
 
