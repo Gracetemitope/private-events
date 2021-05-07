@@ -1,0 +1,28 @@
+<section>
+    <% @privates.each do |private| %>
+      <div class="post-container">
+      <p>
+  <strong>Event Title:</strong>
+  <%= private.title_of_event %>
+</p>
+ <p>
+  <strong>Event Date:</strong>
+  <%= private.event_date %>
+</p>
+ <p>
+  <strong>Event description:</strong>
+  <%= private.description %>
+</p>
+ <p>
+  <strong>Location:</strong>
+  <%= private.location %>
+</p>
+        <%= link_to 'Show', private %>
+
+<% end %>
+  </section>  
+
+<%# <%= link_to 'Create Event', new_private_path %>
+
+
+<%# <%= link_to 'Create Event', new_private_path %>

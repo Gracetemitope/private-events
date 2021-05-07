@@ -2,7 +2,7 @@
 
 <p>
   <strong>Event Creator:</strong>
-  <%=  %>
+  <%= @private.creator['username'] %>
 </p>
 <p>
   <strong>Event date:</strong>
@@ -19,7 +19,7 @@
 </p>
 <p>
   <strong>Event Creator:</strong>
-  <%# <%= @private.creator['username'] %> 
+  <%= @private.creator_id %> 
 </p>
 <p>
   <strong>Event Location:</strong>
@@ -30,9 +30,13 @@
 <p>
 <strong>Attendess:
 </strong>
-<%# <%= @attendees.all%>
+<ul>
+    <% @attendees.each do |attendee| %>
+        <li><%= attendee.username %></li>
+    <% end %>
+</ul>
 </p>
-<%= %>
+
 </div>
 
 <%= link_to 'Edit', edit_private_path(@private) %> |  

@@ -2,13 +2,16 @@ class PrivatesController < ApplicationController
   before_action :set_private, only: %i[show edit update destroy]
 
   # GET /privates or /privates.json
-  def index
-    @privates = Private.all
+    def index
+      @prev_events = Private.prev_events
+      @upcoming_events = Private.upcoming_events
+    # @privates = Private.all
   end
 
   # GET /privates/1 or /privates/1.json
   def show
-    # @attendee = Attendee.all
+    @private = Private.find(params['id'])
+    @attendees = @private.attendees
   end
 
   # GET /privates/new
