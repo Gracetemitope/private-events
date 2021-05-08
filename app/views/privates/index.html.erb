@@ -7,15 +7,17 @@
 <% @future_events.each do |private| %>
 <div class="event-data">
 <p>
-  <strong>Event Title:</strong>
+  <strong>Title:</strong>
+
   <%= private.title_of_event %>
 </p>
+
 <p>
-  <strong>Event Creator:</strong>
+  <strong>Creator:</strong>
   <%= private.creator['username'] %>
 </p>
 <p>
-  <strong>Event date:</strong>
+  <strong>Date:</strong>
   <%= private.event_date %>
 </p>
 </div>
@@ -28,17 +30,17 @@
 <% @past_events.each do |private|%>
 <div class="event-data">
 <p>
-  <strong>Event Creator:</strong>
+  <strong>Title:</strong>
+  <%= private.title_of_event %>
+</p>
+<p>
+  <strong>Creator:</strong>
   <%= private.creator['username'] %>
 </p>
 <p>
-  <strong>Event date:</strong>
+  <strong>Date:</strong>
   <%= private.event_date %>
-</p>
-<p>
-  <strong>Event Title:</strong>
-  <%= private.title_of_event %>
 </p>
 </div>
 <% end %>
- <br/>
+ <br/> 
