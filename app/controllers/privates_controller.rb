@@ -11,8 +11,6 @@ class PrivatesController < ApplicationController
   def show
     @private = Private.find(params['id'])
     @attendees = @private.attendees
-
-   
   end
 
   # GET /privates/new

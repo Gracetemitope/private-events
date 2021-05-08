@@ -38,8 +38,10 @@
 
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
+                <% if user_signed_in? %>
+
  <%= link_to 'Create Event', new_private_path, class: "color" %>
- 
+ <% end %>
       </div>
     </div>
 
