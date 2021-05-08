@@ -14,17 +14,19 @@
  *= require_self
  */
 
- @import "bulma";
+@import "bulma";
 
- h1 {
+h1 {
   text-align: center;
   font-size: 2rem;
 }
+
 h2 {
   text-align: center;
   font-size: 1.5rem;
   margin-top: 1rem;
 }
+
 .border-bottom {
   height: 1px;
   width: 100%;
