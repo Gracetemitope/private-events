@@ -2,15 +2,17 @@ class PrivatesController < ApplicationController
   before_action :set_private, only: %i[show edit update destroy]
 
   # GET /privates or /privates.json
-    def index
-      @past_events = Private.where('event_date < ?', Date.current)
-      @future_events = Private.where('event_date > ?', Date.current)
+  def index
+    @past_events = Private.past
+    @future_events = Private.upcoming
   end
 
   # GET /privates/1 or /privates/1.json
   def show
     @private = Private.find(params['id'])
     @attendees = @private.attendees
+
+   
   end
 
   # GET /privates/new
@@ -27,7 +29,7 @@ class PrivatesController < ApplicationController
 
     respond_to do |format|
       if @private.save
-        format.html { redirect_to @private, notice: 'Private was successfully created.' }
+        format.html { redirect_to @private, notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @private }
       else
         format.html { render :new, status: :unprocessable_entity }

@@ -1,26 +1,44 @@
 <p id="notice"><%= notice %></p>
 
-<h1>All Event</h1>
+<h1>All Events</h1>
 
-<h2>Upcoming Event</h2>
-<%= @future_events.each do |private|%>
+
+<h2>Upcoming Events</h2>
+<% @future_events.each do |private| %>
+<div class="event-data">
 <p>
   <strong>Event Title:</strong>
   <%= private.title_of_event %>
 </p>
+<p>
+  <strong>Event Creator:</strong>
+  <%= private.creator['username'] %>
+</p>
+<p>
+  <strong>Event date:</strong>
+  <%= private.event_date %>
+</p>
+</div>
 <% end %>
 
-<h2>Past Event</h2>
-<%= @past_events.each do |private|%>
+<div class="border-bottom"></div>
+
+<h2>Past Events</h2>
+
+<% @past_events.each do |private|%>
+<div class="event-data">
+<p>
+  <strong>Event Creator:</strong>
+  <%= private.creator['username'] %>
+</p>
+<p>
+  <strong>Event date:</strong>
+  <%= private.event_date %>
+</p>
 <p>
   <strong>Event Title:</strong>
   <%= private.title_of_event %>
 </p>
+</div>
 <% end %>
-<%# 
-<h2>Past Event</h2>
-<%= render 'event.html.erb', privates:  Private.past_events%>
-
- 
-
-<%= link_to 'Create Event', new_private_path %>
+ <br/>

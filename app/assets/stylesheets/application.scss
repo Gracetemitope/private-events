@@ -20,9 +20,22 @@
   text-align: center;
   font-size: 2rem;
 }
+h2 {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
 .border-bottom {
   height: 1px;
   width: 100%;
   background-color: black;
   margin-top: 20px;
+}
+
+.event-data {
+  margin-bottom: 20px;
+}
+
+.color {
+  color: orangered;
 }

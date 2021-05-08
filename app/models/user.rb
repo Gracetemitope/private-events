@@ -4,9 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :privates, foreign_key: "creator_id"
+  has_many :privates, foreign_key: 'creator_id'
   has_many :event_attendees
-  has_many :attending_events, foreign_key: "private_id", class_name: 'Private', through: :event_attendee, source: :private
+  has_many :attending_events, foreign_key: 'private_id', class_name: 'Private', through: :event_attendee,
+                              source: :private
 
   #  belongs_to :creator class_name: "User", foreign_key: "creator"
   # validates :email, presence: true, uniqueness: true
