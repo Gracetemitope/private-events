@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Event Creator:</strong>
+  <%= @private.creator['username'] %>
+</p>
+<p>
+  <strong>Event date:</strong>
+  <%= @private.event_date %>
+</p>
+<p>
+  <strong>Event Title:</strong>
+  <%= @private.title_of_event %>
+</p>
+
+<p>
+  <strong>Event description:</strong>
+  <%= @private.description %>
+</p>
+<p>
+  <strong>Event Location:</strong>
+  <%= @private.location %>
+</p>
+<div class="border-bottom"></div>
+<div>
+<p>
+<strong>Attendess:
+</strong>
+<ul>
+
+    <% @attendees.each do |attendee| %>
+        <li><%= attendee.username %></li>
+    <% end %>
+   
+</ul>
+</p>
+
+</div>
+
+<%= link_to 'Edit', edit_private_path(@private) %> |  
+<%= link_to 'Back', privates_path %>
