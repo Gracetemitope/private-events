@@ -18,10 +18,6 @@
   <%= @private.description %>
 </p>
 <p>
-  <strong>Event Creator:</strong>
-  <%= @private.creator_id %> 
-</p>
-<p>
   <strong>Event Location:</strong>
   <%= @private.location %>
 </p>
@@ -31,9 +27,11 @@
 <strong>Attendess:
 </strong>
 <ul>
+
     <% @attendees.each do |attendee| %>
         <li><%= attendee.username %></li>
     <% end %>
+   
 </ul>
 </p>
 

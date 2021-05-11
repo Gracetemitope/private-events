@@ -20,6 +20,10 @@
   <strong>Date:</strong>
   <%= private.event_date %>
 </p>
+            <% if user_signed_in? %>
+
+        <td><%= link_to 'See more', private %></td>
+<% end %>
 </div>
 <% end %>
 
