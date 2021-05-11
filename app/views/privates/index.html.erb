@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<h1>All Events</h1>
+
+
+<h2>Upcoming Events</h2>
+<% @future_events.each do |private| %>
+<div class="event-data">
+<p>
+  <strong>Title:</strong>
+
+  <%= private.title_of_event %>
+</p>
+
+<p>
+  <strong>Creator:</strong>
+  <%= private.creator['username'] %>
+</p>
+<p>
+  <strong>Date:</strong>
+  <%= private.event_date %>
+</p>
+            <% if user_signed_in? %>
+
+        <td><%= link_to 'See more', private %></td>
+<% end %>
+</div>
+<% end %>
+
+<div class="border-bottom"></div>
+
+<h2>Past Events</h2>
+
+<% @past_events.each do |private|%>
+<div class="event-data">
+<p>
+  <strong>Title:</strong>
+  <%= private.title_of_event %>
+</p>
+<p>
+  <strong>Creator:</strong>
+  <%= private.creator['username'] %>
+</p>
+<p>
+  <strong>Date:</strong>
+  <%= private.event_date %>
+</p>
+</div>
+<% end %>
+ <br/> 

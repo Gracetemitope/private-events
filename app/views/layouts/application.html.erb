@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Event</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  
+        <% if flash[:notice] %>
+  <div class="notification is-primary">
+   <p class="notice"><%= notice %></p>
+</div>
+<% end %>
+ <% if flash[:alert] %>
+  <div class="notification is-danger">
+       <p class="alert"><%= alert %></p>
+  </div>
+<% end %>
+       <div>
+       <nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <%= link_to root_path, class: "navbar-item" do %>
+      <img src="https://logos-download.com/wp-content/uploads/2019/11/Eventbrite_Logo-700x700.png" width="112" height="100">
+    <%end%>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+                <% if user_signed_in? %>
+
+ <%= link_to 'Create Event', new_private_path, class: "color" %>
+ <% end %>
+      </div>
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+            <% if user_signed_in? %>
+<%= link_to "profile", current_user %>
+                                <strong class="button">    <%= current_user.username%></strong>
+
+                        <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "button is_danger" %>
+                        <% else %>
+            <%= link_to "Sign Up", new_user_registration_path, class: "button is_primary" %>
+                                                <%= link_to "Log In", user_session_path, class: "button is_primary" %>
+
+            <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+       </div>
+    <%= yield %>
+  </body>
+</html>
