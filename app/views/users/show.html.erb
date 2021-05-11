@@ -23,13 +23,14 @@
 
 <h2>Upcoming Event</h2>
 <ul>
-    <% @past_events.each do |private| %>
-        <li><%= private.location %> | <%= private.event_date %></li>
+    <% @future_events.each do |private| %>
+        <li><%= private.title_of_event %> | <%= private.event_date %></li>
     <% end %>
 </ul>
+
 <h2>Attended Event</h2>
 <ul>
-    <% @upcoming_events.each do |private| %>
-        <li><%= private.location %> | <%= private.event_date %></li>
+    <% @past_events.each do |private| %>
+        <li><%= private.title_of_event %> | <%= private.event_date %></li>
     <% end %>
 </ul>
