@@ -1,7 +1,7 @@
 class Private < ApplicationRecord
   belongs_to :creator, class_name: 'User', foreign_key: 'creator_id'
   has_many :event_attendees
-  has_many :attendees, class_name: 'User', foreign_key: 'user_id', through: :event_attendees, source: :user
+  has_many :attendees, class_name: 'User', foreign_key: :user_id, through: :event_attendees, source: :user
 
   scope :past, -> { where('event_date < ?', Date.current) }
   scope :upcoming, -> { where('event_date >= ?', Date.current) }

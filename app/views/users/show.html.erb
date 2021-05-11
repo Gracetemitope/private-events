@@ -1,0 +1,35 @@
+<h1> Hello
+<%= @user.username %></h1>
+<h2>Your Events</h2>
+  <% @created_events.each do |private| %>
+<p>
+  <strong>Event Title:</strong>
+  <%= private.title_of_event %>
+</p>
+ <p>
+  <strong>Event Date:</strong>
+  <%= private.event_date %>
+</p>
+ <p>
+  <strong>Event description:</strong>
+  <%= private.description %>
+</p>
+ <p>
+  <strong>Location:</strong>
+  <%= private.location %>
+</p>
+<div class="border-bottom"></div>
+<% end %>
+
+<h2>Upcoming Event</h2>
+<ul>
+    <% @past_events.each do |private| %>
+        <li><%= private.location %> | <%= private.event_date %></li>
+    <% end %>
+</ul>
+<h2>Attended Event</h2>
+<ul>
+    <% @upcoming_events.each do |private| %>
+        <li><%= private.location %> | <%= private.event_date %></li>
+    <% end %>
+</ul>
